@@ -1,10 +1,10 @@
+import "../../styles/NavBar.css";
+
 function NavBar(props) {
     return (
     <div>
-        <ul>
+        <ul className="options">
             <li>Noticias</li>
-            <li>Nosotros</li>
-            <li>Contactanos</li>
             <li>Login</li>
         </ul>
     </div>

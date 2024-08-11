@@ -10,8 +10,8 @@ function ArticleCard(props) {
             <h1>{title}</h1>
             <h2>{abstract}</h2>
             <div className="content-image">
-                <p>{content}</p>
                 <img src={image} alt="" className="image"/>
+                <p>{content}</p>
             </div>
             <div>
                 {/* <p>{author}</p> */}
