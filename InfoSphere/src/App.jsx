@@ -6,6 +6,7 @@ import HomePage from './components/HomePage'
 import LoginPage from './components/LoginPage'
 import './App.css'
 import NotFoundPage from './components/NotFoundPage';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

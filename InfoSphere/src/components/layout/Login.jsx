@@ -1,10 +1,56 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 function Login(props) {
+    const navigate = useNavigate() //navigate para cambiar de pagina una vez autenticado
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    // manejo los cambios que se hagan en los inputs y el submit
+    const handleUsernameChange = (e) => {
+        setUsername(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch("https://sandbox.academiadevelopers.com/api-auth/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                username, 
+                password }),
+            credentials: "include",
+        })
+        .then((response) => {
+            if(!response.ok){
+                alert("Usuario o contraseña incorrectos");
+            }
+            return response.json(); 
+        })
+        .then((data) => {
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+                console.log(data.token);
+                navigate("/profile"); 
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    };
+
     return (
     <div>
         <h1>Login</h1>
-        <form>
-            <input type="text" placeholder="Usuario"/>
-            <input type="password" placeholder="Contraseña"/>
+        <form onSubmit={handleSubmit}>
+            <input required type="text" placeholder="Usuario" value={username} onChange={handleUsernameChange} id="formUsername"/>
+            <input required type="password" placeholder="Contraseña" value={password} onChange={handlePasswordChange} id="formPassword"/>
             <button type="submit">Ingresar</button>
         </form>
     </div>
