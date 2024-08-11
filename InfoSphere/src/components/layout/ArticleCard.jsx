@@ -2,20 +2,20 @@ import React, { useState } from "react";
 
 function ArticleCard(props) {
     const {title, created_at, abstract, content, image } = props;
-// author solo esta devolviendo un id
+    const formatDate = new Date(created_at).toLocaleDateString(); //fecha formato normal
 
     //luego implementar view_count, reactions
     return (
-        <div>
+        <div className="article">
             <h1>{title}</h1>
             <h2>{abstract}</h2>
-            <div>
+            <div className="content-image">
                 <p>{content}</p>
-                <img src={image} alt="" />
+                <img src={image} alt="" className="image"/>
             </div>
             <div>
                 {/* <p>{author}</p> */}
-                <p>{created_at}</p>
+                <p>Publicado: {formatDate}</p>
             </div>
 
         </div>

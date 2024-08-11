@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./layout/ArticleCard";
+import "../styles/HomePage.css";
 
 function HomePage(props) {
     // logica para traer los art y que se renderizen con la card
@@ -19,7 +20,7 @@ function HomePage(props) {
             .then((data) => {
                 setArticles(data.results);
                 setIsLoading(false);
-                // console.log(data);
+                console.log(data);
             })
             .catch((error) => {
                 setError(true);
@@ -28,8 +29,8 @@ function HomePage(props) {
     }, []);
 
     return (
-        <div>
-            <h1>Articles</h1>
+        <div className="articles">
+            {/* <h1>Articles</h1> */}
             {isloading ? (
                 <p>Cargando...</p>
             ) : error ? (
@@ -42,7 +43,7 @@ function HomePage(props) {
                     abstract={article.abstract}
                     content={article.content}
                     image={article.image}
-                    // author={article.author} 
+                    author={article.author} 
                 />)
             )}
         </div>
