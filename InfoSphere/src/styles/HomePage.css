@@ -1,7 +1,7 @@
 .article {
     width: 25%;
-    background-color: rgb(243, 227, 209);
-    border: solid 1px rgb(225, 200, 135);
+    background-color: rgb(255, 242, 222);
+    border: solid 1px rgb(225, 200, 135); /*quitar luego*/
     padding: 0 1rem ;
     margin: 0px;
 }
