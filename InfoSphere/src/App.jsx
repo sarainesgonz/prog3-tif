@@ -9,10 +9,12 @@ import LoginPage from './components/LoginPage'
 import "./styles/reset.css"
 import NotFoundPage from './components/NotFoundPage';
 import ProfilePage from './components/ProfilePage';
+import {AuthProvider} from './components/context/AuthContext';
 
 function App() {
   return (
     <div>
+      <AuthProvider>
       <BrowserRouter>
         <Header/>
         <NavBar/>
@@ -25,6 +27,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer/>
+      </AuthProvider>
 
 
     </div>
