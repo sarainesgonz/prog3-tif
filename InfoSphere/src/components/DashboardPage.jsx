@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import {useAuth} from "./context/AuthContext";
 
-function ProfilePage(props) {
+function DashboardPage(props) {
     // se debe poder navegar a la homepage, reaccionar a las noticias, crear noticias
     const [title, setTitle] = useState("");
     const [abstract, setAbstract] = useState("");
@@ -69,7 +69,7 @@ function ProfilePage(props) {
 
     return (
         <div>
-            <h1>Soy un perfil</h1>
+            <h1>Soy un dashboard</h1>
             <button onClick={handleLogout}>Logout</button>
             <h3>Crea un articulo</h3>
             <form onSubmit={handleSubmit}>
@@ -83,4 +83,4 @@ function ProfilePage(props) {
     )
 }
 
-export default ProfilePage;
+export default DashboardPage;

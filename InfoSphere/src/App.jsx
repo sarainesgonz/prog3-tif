@@ -8,7 +8,7 @@ import LoginPage from './components/LoginPage'
 // import './App.css'
 import "./styles/reset.css"
 import NotFoundPage from './components/NotFoundPage';
-import ProfilePage from './components/ProfilePage';
+import DashboardPage from './components/DashboardPage';
 import {AuthProvider} from './components/context/AuthContext';
 
 function App() {
@@ -17,12 +17,12 @@ function App() {
       <AuthProvider>
       <BrowserRouter>
         <Header/>
-        <NavBar/>
+        {/* <NavBar/> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           {/* la pagina de perfil solo deberia aparecer si se pasa la autenticacion */}
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

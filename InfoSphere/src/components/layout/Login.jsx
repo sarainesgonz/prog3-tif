@@ -39,7 +39,7 @@ function Login(props) {
             if (data.token) {
                 console.log(data.token);
                 login(data.token);
-                navigate("/profile"); 
+                navigate("/dashboard"); 
             }
         })
         .catch((error) => {
