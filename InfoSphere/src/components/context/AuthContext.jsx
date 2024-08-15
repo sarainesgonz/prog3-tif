@@ -22,7 +22,7 @@ function AuthProvider({ children }) {
         if(token) {
             setAuthState({token, isAuth: true})
         }
-    }) //preserva el estado de auth para que no haga logout al recargar
+    }, []) //preserva el estado de auth para que no haga logout al recargar
 
     return (
         <AuthContext.Provider value={{ authState, login, logout }}>
