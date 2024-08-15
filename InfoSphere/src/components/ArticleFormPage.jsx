@@ -1,8 +1,9 @@
 
 import React, { useState} from "react";
-import {useAuth} from "../context/AuthContext";
+import {useAuth} from "./context/AuthContext";
+import NavBar from "./layout/NavBar";
 
-function ArticleForm(props) {
+function ArticleFormPage(props) {
     const [title, setTitle] = useState("");
     const [abstract, setAbstract] = useState("");
     const [content, setContent] = useState("");
@@ -60,7 +61,9 @@ function ArticleForm(props) {
 
     return (
         <div>
+            <NavBar/>
             <h3>Crea un articulo</h3>
+
             <form onSubmit={handleSubmit}>
                 <input required type="text" placeholder="Titulo" value={title} onChange={(e) => setTitle(e.target.value)} id="formTitle" />
                 <textarea type="text" placeholder="Abstract" value={abstract} onChange={(e) => setAbstract(e.target.value)} id="formAbstract" />
@@ -72,4 +75,4 @@ function ArticleForm(props) {
     )
 }
 
-export default ArticleForm;
+export default ArticleFormPage;

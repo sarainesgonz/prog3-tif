@@ -10,7 +10,7 @@ function NavBar() {
             <li><NavLink to="/">Read Articles</NavLink></li>
             {/* <li onClick={handleClick}>Publish Articles</li> */}
             <li><NavLink to="/create">Create Articles</NavLink></li>
-            <li >My Articles</li>
+            <li><NavLink to="/myarticles">My Articles</NavLink></li>
             <li >My profile</li>
         </ul>
     </div>
