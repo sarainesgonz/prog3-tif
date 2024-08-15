@@ -1,4 +1,4 @@
-import { createContext, useContext, useState} from "react";
+import { createContext, useContext, useEffect, useState} from "react";
 
 const AuthContext = createContext();
 
@@ -16,6 +16,13 @@ function AuthProvider({ children }) {
         localStorage.removeItem("Token");
         setAuthState({token: null, isAuth: false})
     }
+
+    useEffect(() => {
+        const token = localStorage.getItem("Token");
+        if(token) {
+            setAuthState({token, isAuth: true})
+        }
+    }) //preserva el estado de auth para que no haga logout al recargar
 
     return (
         <AuthContext.Provider value={{ authState, login, logout }}>
