@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "./context/AuthContext";
 import ArticleCard from "./layout/ArticleCard";
 import "../styles/HomePage.css";
+import NavBar from "./layout/NavBar";
 
 function HomePage(props) {
-    // logica para traer los art y que se renderizen con la card
+/* displays all the articles, and the navbar if the user is authenticated*/
     const [articles, setArticles] = useState([]);
     const [isloading, setIsLoading] = useState(true)
     const [error, setError] = useState(false)
+    const {authState} = useAuth();
+    const {isAuth} = authState
 
     useEffect(() => {
 
@@ -29,6 +33,10 @@ function HomePage(props) {
     }, []);
 
     return (
+        <div>
+        <div>
+            {isAuth ? <NavBar/> : null}
+        </div>
         <div className="articles">
             {/* <h1>Articles</h1> */}
             {isloading ? (
@@ -46,6 +54,8 @@ function HomePage(props) {
                     author={article.author} 
                 />)
             )}
+        </div>
+        
         </div>
     )
 }

@@ -25,7 +25,7 @@ function Header() {
         <h1>InfoSphere</h1>
       </div>
       <div className="login-btn">
-        {!isAuth ? (<button onClick={handleClickLogin}>Login</button>) : (<button onClick={handleClickLogout}>Logout</button>)}
+        {isAuth ? (<button onClick={handleClickLogout}>Logout</button>) : (<button onClick={handleClickLogin}>Login</button>)}
       </div>
     </div>
   )

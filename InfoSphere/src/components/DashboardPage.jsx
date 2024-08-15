@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import {useAuth} from "./context/AuthContext";
+import NavBar from "./layout/NavBar";
 
 function DashboardPage(props) {
     // se debe poder navegar a la homepage, reaccionar a las noticias, crear noticias
@@ -8,7 +9,7 @@ function DashboardPage(props) {
     const [abstract, setAbstract] = useState("");
     const [content, setContent] = useState("");
     const [image, setImage] = useState(null);
-    const {authState, logout} = useAuth();
+    const {authState} = useAuth();
     const {token} = authState;
     const navigate = useNavigate();
 
@@ -61,16 +62,10 @@ function DashboardPage(props) {
         });
     };
 
-    const handleLogout =(e) => {
-        e.preventDefault();
-        logout()
-        navigate("/");
-    }
-
     return (
         <div>
             <h1>Soy un dashboard</h1>
-            <button onClick={handleLogout}>Logout</button>
+            <NavBar/>
             <h3>Crea un articulo</h3>
             <form onSubmit={handleSubmit}>
                 <input required type="text" placeholder="Titulo" value={title} onChange={(e)=> setTitle(e.target.value)} id="formTitle"/>
