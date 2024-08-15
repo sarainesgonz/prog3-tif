@@ -10,6 +10,7 @@ import "./styles/reset.css"
 import NotFoundPage from './components/NotFoundPage';
 import DashboardPage from './components/DashboardPage';
 import {AuthProvider} from './components/context/AuthContext';
+import ArticleForm from './components/layout/ArticleForm';
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          {/* la pagina de perfil solo deberia aparecer si se pasa la autenticacion */}
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/create" element={<ArticleForm/>}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
