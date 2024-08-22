@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Login(props) {
     const navigate = useNavigate() //navigate para cambiar de pagina una vez autenticado
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const {login} = useAuth()
 
     // manejo los cambios que se hagan en los inputs y el submit
     const handleUsernameChange = (e) => {
@@ -35,9 +37,9 @@ function Login(props) {
         })
         .then((data) => {
             if (data.token) {
-                localStorage.setItem("token", data.token);
                 console.log(data.token);
-                navigate("/profile"); 
+                login(data.token);
+                navigate("/dashboard"); 
             }
         })
         .catch((error) => {

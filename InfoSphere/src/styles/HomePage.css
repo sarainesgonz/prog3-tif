@@ -1,5 +1,5 @@
 .article {
-    width: 25%;
+    width: 27%;
     background-color: rgb(255, 242, 222);
     border: solid 1px rgb(225, 200, 135); /*quitar luego*/
     padding: 1rem ;
@@ -25,5 +25,7 @@
 .articles {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem
+    gap: 1rem;
+    /* align-items: center; */
+    justify-content: center;
 }
