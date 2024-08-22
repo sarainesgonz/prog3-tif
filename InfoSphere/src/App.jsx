@@ -11,6 +11,7 @@ import DashboardPage from './components/DashboardPage';
 import {AuthProvider} from './components/context/AuthContext';
 import MyArticlesPage from './components/MyArticlesPage';
 import ArticleFormPage from './components/ArticleFormPage';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/create" element={<ArticleFormPage/>}/>
           <Route path="/myarticles" element={<MyArticlesPage/>}/>
+          <Route path="/myprofile" element={<ProfilePage/>}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

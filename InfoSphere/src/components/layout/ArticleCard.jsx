@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function ArticleCard(props) {
-    const {title, created_at, abstract, content, image } = props;
+    const {title, created_at, abstract, content, image, author } = props;
     const formatDate = new Date(created_at).toLocaleDateString(); //fecha formato normal
 
     //luego implementar view_count, reactions
@@ -14,7 +14,7 @@ function ArticleCard(props) {
                 <p>{content}</p>
             </div>
             <div>
-                {/* <p>{author}</p> */}
+                <p>{author}</p>
                 <p>Publicado: {formatDate}</p>
             </div>
 

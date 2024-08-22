@@ -11,7 +11,8 @@ function NavBar() {
             {/* <li onClick={handleClick}>Publish Articles</li> */}
             <li><NavLink to="/create">Create Articles</NavLink></li>
             <li><NavLink to="/myarticles">My Articles</NavLink></li>
-            <li >My profile</li>
+            <li><NavLink to="/myprofile">My Profile</NavLink></li>
+            
         </ul>
     </div>
 )
