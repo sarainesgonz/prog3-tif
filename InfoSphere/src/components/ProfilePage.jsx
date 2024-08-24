@@ -1,30 +1,37 @@
 import NavBar from "./layout/NavBar";
-import useFetch from "./useFetch";
-import { useEffect, useState } from 'react';
 import { useAuth } from "./context/AuthContext";
+import { useUser } from "./context/UserContext";
+
 
 function ProfilePage() {
-    // retrieves a user's profile info
     const { authState } = useAuth();
     const { token } = authState;
-    const [profileInfo, setProfileInfo] = useState(null)
-    const { data, loading, error } = useFetch("https://sandbox.academiadevelopers.com/users/profiles/profile_data/",
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Token ${token}`,
-            },
-            credentials: "include",
-        });
+    const { userState } = useUser()
+    // const [profileInfo, setProfileInfo] = useState(null)
+    // const { data, loading, error } = useFetch("https://sandbox.academiadevelopers.com/users/profiles/profile_data/",
+    //     {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": `Token ${token}`,
+    //         },
+    //         credentials: "include",
+    //     });
 
+    // const {setUserState} = useUser()
 
-    useEffect(() => {
-        if (data && profileInfo !== data) {
-            setProfileInfo(data)
-            console.log(data)
-        }
-    }, [data, profileInfo]);
+    // useEffect(() => {
+    //     if (data && profileInfo !== data) {
+    //         setProfileInfo(data)
+    //         console.log(data)
+    // setUserState({userData: data})
+    // gaurdo los datos en el contexto
+    //     }
+    // }, [data, profileInfo]);
+    console.log("desde el profile", userState)
+    if (!userState) {
+        return <p>No hay dato disponibles</p>
+    }
 
     return (
         <div>
@@ -32,25 +39,15 @@ function ProfilePage() {
             <div>
                 <h1>My Profile</h1>
                 <div>
-                    {loading ? (
-                        <p>Cargando datos del perfil...</p>
-                    ) : error ? (
-                        <p>Ocurrio un error</p>
-                    ) :
-                        profileInfo ? (
-                            <div>
-                                <p>{profileInfo.username}</p>
-                                <p>{profileInfo.first_name}</p>
-                                <p>{profileInfo.last_name}</p>
-                                <p>{profileInfo.email}</p>
-                                <p>{profileInfo.dob ? profileInfo.dob : "Agrega tu fecha de nacimiento"}</p>
-                                <p>{profileInfo.state ? profileInfo.dob : "Agrega un estado"}</p>
-                            </div>
-                    ) : (
-                        <p>No hay datos</p>)}
+
+                    <p>{userState.username}</p>
+                    <p>{userState.first_name}</p>
+                    <p>{userState.last_name}</p>
+                    <p>{userState.email}</p>
+                    <p>{userState.dob ? userState.dob : "Agrega tu fecha de nacimiento"}</p>
+                    <p>{userState.state ? userState.dob : "Agrega un estado"}</p>
 
                 </div>
-
             </div>
         </div>
     )

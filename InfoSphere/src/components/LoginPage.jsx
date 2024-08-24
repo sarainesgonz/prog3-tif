@@ -1,4 +1,4 @@
-import Login from "./layout/login";
+import Login from "./layout/Login";
 
 function LoginPage(props) {
     return (
