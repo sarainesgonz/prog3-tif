@@ -82,7 +82,7 @@ function Login(props) {
                                     <input required type="password" placeholder="Contraseña" value={password} onChange={handlePasswordChange} id="formPassword" class="form-control" />
                                 </div>
                                 <div className="d-grid">
-                                    <button type="submit" className="btn btn-primary" style={{ backgroundColor: '#1e3a8a' }}>Ingresar</button>
+                                    <button type="submit" className="btn btn-dark" >Ingresar</button>
                                 </div>
                             </form>
                         </div>
