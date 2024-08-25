@@ -65,12 +65,20 @@ function Login(props) {
     return (
     <div>
         <h1>Login</h1>
+        
         <form onSubmit={handleSubmit}>
-            <input required type="text" placeholder="Usuario" value={username} onChange={handleUsernameChange} id="formUsername"/>
-            <input required type="password" placeholder="Contraseña" value={password} onChange={handlePasswordChange} id="formPassword"/>
+        <div class="mb-3">
+        <label  className="form-label">Usuario</label>
+            <input required type="text" placeholder="Usuario" value={username} onChange={handleUsernameChange} id="formUsername" class="form-control"/>
+        </div>
+        <div class="mb-3">
+        <label className="form-label">Contraseña</label>
+            <input required type="password" placeholder="Contraseña" value={password} onChange={handlePasswordChange} id="formPassword" class="form-control"/>
+        </div>
             <button type="submit">Ingresar</button>
         </form>
     </div>
+    
 )
   }
 export default Login;
