@@ -39,7 +39,7 @@ function HomePage(props) {
             </div>
             <div>
                 <button onClick={handlePreviousPage} disabled={page <= 1}>Anterior</button>
-                <button onClick={handleNextPage} disabled={!data || !data.next}>Sigueinte</button>
+                <button onClick={handleNextPage} disabled={!data || !data.next}>Siguiente</button>
             </div>
             <div className="articles">
 
