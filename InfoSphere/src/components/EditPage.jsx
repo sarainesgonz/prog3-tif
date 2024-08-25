@@ -76,11 +76,19 @@ function EditPage() {
       throw new Error("No se pudo editar el articulo");
     }
   }
+
+  const handleBackClick = () => {
+    navigate(-1)
+  }
+
   return (
     <div>
       <NavBar />
       {loading && <p>Cargando...</p>}
       {error && <p>Se ha producido un error</p>}
+      <div className="d-flex justify-content-end">
+        <button className="btn btn-primary me-2" onClick={handleBackClick}>Volver</button>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label"> Titulo</label>
