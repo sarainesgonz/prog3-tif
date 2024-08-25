@@ -3,6 +3,8 @@ import { useUser } from "./context/UserContext";
 import { useEffect, useState } from 'react';
 import useFetch from "./useFetch";
 import { useAuth } from "./context/AuthContext";
+import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function MyArticlesPage() {
     const { authState } = useAuth();
@@ -26,7 +28,7 @@ function MyArticlesPage() {
             setAllArticles(previousAticles => [...previousAticles, ...data.results])
             if (data.next) {
                 setUrl(data.next)
-            } 
+            }
             else {
                 setFullyFetched(true)
             }
@@ -34,14 +36,14 @@ function MyArticlesPage() {
     }, [data])
 
 
-    useEffect(() => {    
+    useEffect(() => {
         if (fullyFetched && userState) {
             const getMyArticles = allArticles.filter(article => article.author === userState.user__id);
             const orderedArticles = getMyArticles.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
             setMyArticles(orderedArticles)
-            console.log("Mis articulos creados por ni", myArticles)
+            // console.log("Mis articulos creados por ni", myArticles)
         }
-    }, [ allArticles, userState, fullyFetched])
+    }, [allArticles, userState, fullyFetched])
 
     return (
         <div>
@@ -49,14 +51,34 @@ function MyArticlesPage() {
             <h1>My Articles</h1>
 
             {loading || !fullyFetched ? (
-                    <p>Cargando articulos...</p>
-                ) : error ? (
-                    <p>Ocurrio un error al cargar tus articulos</p>
-                ) : myArticles.length > 0 ? ( 
-                <ul> {myArticles.map(article => (
-                    <li key={article.id}>{article.title}</li>))}
-                </ul>
-                ) : (<p>No tenes articulos publicados</p>)}
+                <p>Cargando articulos...</p>
+            ) : error ? (
+                <p>Ocurrio un error al cargar tus articulos</p>
+            ) : myArticles.length > 0 ? (
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Fecha de creación</th>
+                            <th>Título</th>
+                            {/* <th>Descripcion</th> */}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {myArticles.map(article => (
+                            <tr key={article.id}>
+                                
+                                <td>{new Date(article.created_at).toLocaleDateString()}</td>
+                                <td>{article.title}</td>
+                                {/* <td>{article.abstract}</td> */}
+                                <td>
+                                    <Link to={`/article/${article.id}`} className="btn btn-primary" >Leer</Link>
+                                </td>
+    
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (<p>No tenes articulos publicados</p>)}
         </div>
     )
 

@@ -13,6 +13,7 @@ import MyArticlesPage from './components/MyArticlesPage';
 import ArticleFormPage from './components/ArticleFormPage';
 import ProfilePage from './components/ProfilePage';
 import {UserProvider} from './components/context/UserContext'
+import FullArticlePage from './components/FullArticlePage';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/create" element={<ArticleFormPage />} />
               <Route path="/myarticles" element={<MyArticlesPage />} />
               <Route path="/myprofile" element={<ProfilePage />} />
+              <Route path='/article/:id' element={<FullArticlePage/>} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </BrowserRouter>
