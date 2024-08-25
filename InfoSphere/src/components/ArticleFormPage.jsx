@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useAuth } from "./context/AuthContext";
 import NavBar from "./layout/NavBar";
 import { useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ArticleFormPage(props) {
     const [title, setTitle] = useState("");

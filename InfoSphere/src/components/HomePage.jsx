@@ -4,6 +4,7 @@ import useFetch from "./useFetch";
 import ArticleCard from "./layout/ArticleCard";
 import "../styles/HomePage.css";
 import NavBar from "./layout/NavBar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function HomePage(props) {
     /* displays all the articles, and the navbar if the user is authenticated*/

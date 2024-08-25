@@ -1,7 +1,7 @@
 import NavBar from "./layout/NavBar";
 import { useAuth } from "./context/AuthContext";
 import { useUser } from "./context/UserContext";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ProfilePage() {
     const { authState } = useAuth();

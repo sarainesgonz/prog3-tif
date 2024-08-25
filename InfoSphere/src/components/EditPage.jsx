@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import useFetch from "./useFetch";
 import NavBar from "./layout/NavBar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function EditPage() {
   const { id } = useParams();

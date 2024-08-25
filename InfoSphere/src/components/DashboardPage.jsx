@@ -4,6 +4,7 @@ import { useUser} from "./context/UserContext";
 import { useAuth } from "./context/AuthContext";
 import { useEffect, useState } from 'react';
 import useFetch from "./useFetch";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function DashboardPage(props) {
     // se debe poder navegar a la homepage, reaccionar a las noticias, crear noticias
@@ -32,8 +33,8 @@ function DashboardPage(props) {
 
     return (
         <div>
-            <h1>Soy un dashboard</h1>
-            {userState && <h1>Hola {userState.first_name}</h1>}
+            <h1 className="text-center">Inicio</h1>
+            {userState && <h2 className="text-center">Hola {userState.first_name}</h2>}
             <NavBar />
         </div>
     )

@@ -48,13 +48,14 @@ function MyArticlesPage() {
     return (
         <div>
             <NavBar />
-            <h1>My Articles</h1>
+            <h1 className="text-center">Mis artículos</h1>
 
             {loading || !fullyFetched ? (
                 <p>Cargando articulos...</p>
             ) : error ? (
                 <p>Ocurrio un error al cargar tus articulos</p>
             ) : myArticles.length > 0 ? (
+                <div className="container mt-5">
                 <table className="table">
                     <thead>
                         <tr>
@@ -78,6 +79,7 @@ function MyArticlesPage() {
                         ))}
                     </tbody>
                 </table>
+                </div>
             ) : (<p>No tenes articulos publicados</p>)}
         </div>
     )
