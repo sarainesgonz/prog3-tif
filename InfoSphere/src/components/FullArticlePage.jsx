@@ -52,12 +52,16 @@ function FullArticlePage() {
    
     }
 
+    const handleEdit = () => {
+        navigate(`/edit/${id}`)
+    }
+
 return (
         <div>
             <NavBar />
             {/* <Buttons />  */}
             <div className="d-flex justify-content-end">
-                <button className="btn btn-primary me-2" >Editar</button>
+                <button className="btn btn-primary me-2" onClick={handleEdit}>Editar</button>
                 <button className="btn btn-danger" onClick={handleDelete}>Eliminar</button>
             </div>
             <div className="container mt-5">
@@ -68,10 +72,10 @@ return (
                 ) : article ? (
                     <div className="card">
                         <h1 className="card-title">{article.title}</h1>
+                        <h2 className="card-subtitle mb-2 text-muted">{article.abstract}</h2>
                         <div className="text-center mb-4">
                         <img src={article.image} alt="article" className="img-fluid"/> 
                         </div>
-                        <h2 className="card-subtitle mb-2 text-muted">{article.abstract}</h2>
                         <p className="card-text">{article.content}</p>
                         {/* <p>{article.author}</p> */}
                       </div>

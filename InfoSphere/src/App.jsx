@@ -14,6 +14,7 @@ import ArticleFormPage from './components/ArticleFormPage';
 import ProfilePage from './components/ProfilePage';
 import {UserProvider} from './components/context/UserContext'
 import FullArticlePage from './components/FullArticlePage';
+import EditPage from './components/EditPage';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path="/myarticles" element={<MyArticlesPage />} />
               <Route path="/myprofile" element={<ProfilePage />} />
               <Route path='/article/:id' element={<FullArticlePage/>} />
+              <Route path='/edit/:id' element={<EditPage/>} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </BrowserRouter>
