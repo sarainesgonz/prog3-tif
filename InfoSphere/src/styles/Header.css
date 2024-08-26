@@ -28,11 +28,12 @@
     font-size: 1.3rem;
     font-weight: bold;
     margin: 1px;
+    background-color:  rgb(44, 33, 75);
     color: white;
     cursor: pointer;
     text-transform: uppercase;
 }
 
 .login-btn button:hover {
-    color: rgb(44, 33, 75);
+    color: rgb(68, 62, 85);
 }

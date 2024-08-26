@@ -1,4 +1,5 @@
-import Login from "./layout/login";
+import Login from "./layout/Login";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function LoginPage(props) {
     return (

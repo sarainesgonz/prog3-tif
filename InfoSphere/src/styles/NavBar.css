@@ -1,11 +1,11 @@
-.options {
-    display: flex;
+/* .options { */
+    /* display: flex; */
     /* flex-wrap: wrap; */
-    justify-content: left;
+    /* justify-content: left; */
     /* margin: -11rem 1rem 8.5rem 0;; */
-}
+/* } */
 
-.options li {
+/* .options li {
     padding: 1rem;
     font-size: 1.3rem;
     font-weight: bold;
@@ -17,4 +17,12 @@
 
 .options li:hover {
     color: rgb(44, 33, 75);
+} */
+
+.navbar-link {
+    text-decoration: none;
+}
+
+.navbar-link.active {
+    font-weight: bold;
 }

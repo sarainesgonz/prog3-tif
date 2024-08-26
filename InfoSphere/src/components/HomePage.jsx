@@ -4,6 +4,7 @@ import useFetch from "./useFetch";
 import ArticleCard from "./layout/ArticleCard";
 import "../styles/HomePage.css";
 import NavBar from "./layout/NavBar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function HomePage(props) {
     /* displays all the articles, and the navbar if the user is authenticated*/
@@ -37,30 +38,31 @@ function HomePage(props) {
             <div>
                 {isAuth ? <NavBar /> : null}
             </div>
-            <div>
-                <button onClick={handlePreviousPage} disabled={page <= 1}>Anterior</button>
-                <button onClick={handleNextPage} disabled={!data || !data.next}>Sigueinte</button>
+            <div className="d-flex justify-content-center my-3">
+                <button onClick={handlePreviousPage} disabled={page <= 1} className="btn btn-primary me-2"> Anterior</button>
+                <button onClick={handleNextPage} disabled={!data || !data.next} className="btn btn-primary">Siguiente</button>
             </div>
-            <div className="articles">
+            <div className="container mt-5">
+                <div className="row">
 
-                {/* <h1>Articles</h1> */}
-                {loading ? (
-                    <p>Cargando articulos...</p>
-                ) : error ? (
-                    <p>Ocurrio un error</p>
-                ) : data.results.map((article) => (
-                    <ArticleCard
-                        key={article.id}
-                        title={article.title}
-                        created_at={article.created_at}
-                        abstract={article.abstract}
-                        content={article.content}
-                        image={article.image}
-                        author={article.author}
-                    />)
-                )}
+                    {/* <h1>Articles</h1> */}
+                    {loading ? (
+                        <p>Cargando articulos...</p>
+                    ) : error ? (
+                        <p>Ocurrio un error</p>
+                    ) : data.results.map((article) => (
+                        <ArticleCard
+                            key={article.id}
+                            title={article.title}
+                            created_at={article.created_at}
+                            abstract={article.abstract}
+                            content={article.content}
+                            image={article.image}
+                            author={article.author}
+                        />)
+                    )}
+                </div>
             </div>
-
 
         </div>
     )

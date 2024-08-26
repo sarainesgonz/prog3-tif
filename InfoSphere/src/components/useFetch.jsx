@@ -13,8 +13,13 @@ function useFetch(url, options = {}) {
                 if (!response.ok) {
                     throw new Error("Errror al hacer la petición");
                 }
-                const result = await response.json();
-                setData(result);
+                if (response.status !== 204) {
+                    const result = await response.json();
+                    setData(result);
+                } else {
+                    setData({message: "Eliminación exitosa"})
+                }
+               
                 // console.log(result)
                 setLoading(false);
                 

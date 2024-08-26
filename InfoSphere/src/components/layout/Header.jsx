@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../../styles/Header.css";
 import {useAuth} from "../context/AuthContext";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Header() {
 /* displays the logo, name, and login/logout button that changes depending if user is authenticated or not */
