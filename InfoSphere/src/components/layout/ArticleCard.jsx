@@ -13,7 +13,7 @@ function ArticleCard(props) {
                 <img src={image} alt="" className="card-img-top" style={{ height: '200px', objectFit: 'contain' }} />
                 {/* <p>{content}</p> */}
                 <div className="card-body d-flex flex-column">
-                    <h1 className="card-title" style={{ fontSize: '1.7rem', fontWeight: 'bold', color: '#2c214b' }}>{title}</h1>
+                    <h1 className="card-title" style={{ fontSize: '2rem', fontWeight: 'bold', color: '#2c214b' }}>{title}</h1>
                     <h3 className="card-text">{abstract}</h3>
                     <p className="card-text mt-auto"><small className='text-muted'>Publicado: {formatDate}</small></p>
                     <Link to={'/login'} className="btn btn-dark mt-2">Leer mas</Link>

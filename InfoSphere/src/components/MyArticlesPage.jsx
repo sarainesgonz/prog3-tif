@@ -51,9 +51,9 @@ function MyArticlesPage() {
             <h1 className="text-center">Mis artículos</h1>
 
             {loading || !fullyFetched ? (
-                <p>Cargando articulos...</p>
+                <p className="text-center">Cargando articulos...</p>
             ) : error ? (
-                <p>Ocurrio un error al cargar tus articulos</p>
+                <p className="text-center">Ocurrio un error al cargar tus articulos</p>
             ) : myArticles.length > 0 ? (
                 <div className="container mt-5">
                 <table className="table">

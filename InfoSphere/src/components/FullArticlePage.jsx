@@ -60,23 +60,23 @@ return (
         <div>
             <NavBar />
             {/* <Buttons />  */}
-            <div className="d-flex justify-content-end">
+            <div className="d-flex justify-content-end m-5">
                 <button className="btn btn-primary me-2" onClick={handleEdit}>Editar</button>
                 <button className="btn btn-danger" onClick={handleDelete}>Eliminar</button>
             </div>
-            <div className="container mt-5">
+            <div className="container m-5">
                 {loading ? (
                     <p className="text-center">Cargando articulo...</p>
                 ) : error ? (
                     <p className="text-center text-danger">Ocurrio un error</p>
                 ) : article ? (
                     <div className="card">
-                        <h1 className="card-title">{article.title}</h1>
-                        <h2 className="card-subtitle mb-2 text-muted">{article.abstract}</h2>
+                        <h1 className="card-title m-3"  style={{ fontSize: '3rem', fontWeight: 'bold', color: '#2c214b' }} >{article.title}</h1>
+                        <h2 className="card-subtitle m-3 text-muted">{article.abstract}</h2>
                         <div className="text-center mb-4">
                         <img src={article.image} alt="article" className="img-fluid"/> 
                         </div>
-                        <p className="card-text">{article.content}</p>
+                        <p className="card-text m-3">{article.content}</p>
                         {/* <p>{article.author}</p> */}
                       </div>
                 ) : (
