@@ -2,7 +2,7 @@ import NavBar from "./layout/NavBar";
 import { useAuth } from "./context/AuthContext";
 import { useUser } from "./context/UserContext";
 import { useState } from 'react';
-import { navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ProfilePage() {
@@ -13,6 +13,7 @@ function ProfilePage() {
     const [formData, setFormData] = useState({ username: "", first_name: "", last_name: "", email: "", dob: "", bio: "", image: "" })
     const [file, setFile] = useState(null)
     const id = userState.user__id;
+    const navigate = useNavigate();
 
     console.log("desde el profile", userState)
     if (!userState) {
@@ -70,6 +71,7 @@ function ProfilePage() {
                 setFormData(updatedUser)
                 setEditing(false)
                 alert("Has actualizado tu perfil")
+                navigate("/dashboard")
                 
             } else {
                 const errorResponse = await response.json()

@@ -33,8 +33,10 @@ function DashboardPage(props) {
 
     return (
         <div>
-            <h1 className="text-center">Inicio</h1>
-            {userState && <h2 className="text-center">Hola {userState.first_name}</h2>}
+            {/* <h1 className="text-center">Inicio</h1> */}
+            {userState && <h1 className="text-center m-5" style={{ fontSize: '3rem', fontWeight: 'bold', color: '#2c214b' }}>Hola {userState.first_name}</h1>}
+            <h2 className="text-center m-5" style={{ fontSize: '2rem', fontWeight: 'bold', color: '#2c214b' }}>¿Qué deseas hacer hoy?</h2>
+
             <NavBar />
         </div>
     )
