@@ -27,7 +27,8 @@ function MyArticlesPage() {
         if (data) {
             setAllArticles(previousAticles => [...previousAticles, ...data.results])
             if (data.next) {
-                setUrl(data.next)
+                const nextUrl = data.next.replace("http://", "https://")
+                setUrl(nextUrl)
             }
             else {
                 setFullyFetched(true)
