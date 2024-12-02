@@ -1,8 +1,8 @@
 .header {
-    background-color: rgb(213, 167, 97);
+    background-color: rgb(20, 26, 100);
     display: flex;
     align-items: center;
-    height: 25vh;
+    height: 30vh;
 }
 
 .header img {
@@ -12,7 +12,7 @@
 
 .header h1 {
     font-size: 3rem;
-    color: rgb(44, 33, 75);
+    color: rgb(238, 236, 244);
     font-weight: bold;
 }
 
@@ -20,7 +20,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: right;
-    margin: -11rem 1rem 8.5rem 0;;
+    margin: -11rem 1rem 8.5rem 0;
+
 }
 
 .login-btn button {
@@ -28,12 +29,13 @@
     font-size: 1.3rem;
     font-weight: bold;
     margin: 1px;
-    background-color:  rgb(44, 33, 75);
+    background-color: rgb(20, 26, 100);
     color: white;
     cursor: pointer;
     text-transform: uppercase;
+    border: none;
 }
 
 .login-btn button:hover {
-    color: rgb(68, 62, 85);
+    color: rgb(147, 189, 224);
 }

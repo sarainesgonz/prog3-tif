@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 function ArticleCard(props) {
     const { title, created_at, abstract, content, image, author } = props;
     const formatDate = new Date(created_at).toLocaleDateString(); //fecha formato normal
+    const defaultImage = "../../public/defaultImage.jpeg";
 
     return (
-        <div className="col-lg-4 col-md-6 mb-4 d-flex">
+        <div className="col-lg-6 col-md-6 mb-4 d-flex">
             <div className="card flex-fill">
 
-                <img src={image} alt="" className="card-img-top" style={{ height: '200px', objectFit: 'contain' }} />
+                <img src={image || defaultImage} alt="" className="card-img-top" style={{ height: '200px', objectFit: 'contain' }} />
                 {/* <p>{content}</p> */}
                 <div className="card-body d-flex flex-column">
                     <h1 className="card-title" style={{ fontSize: '2rem', fontWeight: 'bold', color: '#2c214b' }}>{title}</h1>
