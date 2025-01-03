@@ -85,12 +85,12 @@ function EditPage() {
   return (
     <div>
       <NavBar />
-      {loading && <p>Cargando...</p>}
+      {loading && <p className="m-6">Cargando...</p>}
       {error && <p>Se ha producido un error</p>}
       <div className="d-flex justify-content-end">
-        <button className="btn btn-primary me-2" onClick={handleBackClick}>Volver</button>
+        <button className="btn btn-secondary me-2" onClick={handleBackClick}>Volver</button>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}  className="container mt-5">
         <div className="mb-3">
           <label className="form-label"> Titulo</label>
           <input type="text" value={formData.title} onChange={handleChange} required className="form-control" name="title" />
@@ -107,7 +107,9 @@ function EditPage() {
           <label className="form-label"> Imagen </label>
           <input type="file" name="image" className="form-control" onChange={handleChange} />
         </div>
-        <button type="submit" className="btn btn-primary">Guardar cambios</button>
+        <div className="d-flex justify-content-end m-3">
+          <button type="submit" className="btn btn-primary">Guardar cambios</button>
+        </div>
       </form>
     </div>
   );

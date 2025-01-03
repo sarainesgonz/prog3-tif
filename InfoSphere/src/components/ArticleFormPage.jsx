@@ -66,9 +66,9 @@ function ArticleFormPage(props) {
     return (
         <div>
             <NavBar />
-            <h3>Crea un articulo</h3>
+            <h3 className="text-center">Crea un articulo</h3>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="container mt-5">
                 <div className="mb-3">
                     <label className="form-label"> Titulo</label>
                     <input required type="text" placeholder="Titulo" value={title} onChange={(e) => setTitle(e.target.value)} id="formTitle" className="form-control" />
@@ -86,7 +86,10 @@ function ArticleFormPage(props) {
                     <label className="form-label"> Imagen </label>
                     <input type="file" placeholder="Imagen" onChange={(e) => setImage(e.target.files[0])} id="formImage" className="form-control" />
                 </div>
-                <button type="submit" className="btn btn-primary">Crear Articulo</button>
+                <div className="d-flex justify-content-end m-3">
+                    <button type="submit" className="btn btn-primary " >Crear Articulo</button>
+
+                </div>
 
             </form>
         </div>

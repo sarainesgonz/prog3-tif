@@ -56,12 +56,17 @@ function FullArticlePage() {
         navigate(`/edit/${id}`)
     }
 
+    const handleBackClick = () => {
+        navigate(-1)
+      }
+
 return (
         <div>
             <NavBar />
             {/* <Buttons />  */}
             <div className="d-flex justify-content-end m-5">
                 <button className="btn btn-primary me-2" onClick={handleEdit}>Editar</button>
+                <button className="btn btn-secondary me-2" onClick={handleBackClick}>Volver</button>
                 <button className="btn btn-danger" onClick={handleDelete}>Eliminar</button>
             </div>
             <div className="container m-5">

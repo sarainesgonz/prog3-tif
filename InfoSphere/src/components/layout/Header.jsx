@@ -30,9 +30,10 @@ function Header() {
         <img src="../../logo_infosphere.png" alt="img" onClick={handleBackClick} />
         <h1 className="font-header" onClick={handleBackClick}>InfoSphere</h1>
       </div>
-      {/* <div className="login-btn">
-        {isAuth ? (<button onClick={handleClickLogout}>Logout</button>) : (<button onClick={handleClickLogin}>Login</button>)}
-      </div> */}
+      {/* <div className="login-btn"> */}
+        {/* {isAuth ? (<button onClick={handleClickLogout}>Logout</button>) : (<button onClick={handleClickLogin}>Login</button>)} */}
+        {isAuth ? (<button className="btn btn-danger position-absolute" style={{right: '10px', top: '10px'}} onClick={handleClickLogout}>Logout</button>) : null}
+      {/* </div> */}
     </div>
   )
 
