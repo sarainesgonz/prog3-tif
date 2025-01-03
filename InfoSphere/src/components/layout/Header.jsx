@@ -19,15 +19,20 @@ function Header() {
     navigate("/")
   }
 
+  const handleBackClick = () => {
+    navigate(-1)
+  }
+
   return (
     <div>
       <div className="header">
-        <img src="../../intelectual_cat_reading.png" alt="img" />
-        <h1>InfoSphere</h1>
+        
+        <img src="../../logo_infosphere.png" alt="img" onClick={handleBackClick} />
+        <h1 className="font-header" onClick={handleBackClick}>InfoSphere</h1>
       </div>
-      <div className="login-btn">
+      {/* <div className="login-btn">
         {isAuth ? (<button onClick={handleClickLogout}>Logout</button>) : (<button onClick={handleClickLogin}>Login</button>)}
-      </div>
+      </div> */}
     </div>
   )
 
