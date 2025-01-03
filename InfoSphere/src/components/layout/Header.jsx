@@ -20,7 +20,7 @@ function Header() {
   }
 
   const handleBackClick = () => {
-    navigate(-1)
+    navigate("/")
   }
 
   return (

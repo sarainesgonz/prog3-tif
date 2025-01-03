@@ -14,11 +14,23 @@ function HomePage(props) {
     const [url, setUrl] = useState("https://sandbox.academiadevelopers.com/infosphere/articles/");
     const { data, loading, error } = useFetch(url, { method: "GET" });
     const [page, setPage] = useState(1);
-
+    const [randomArticle, setRandomArticle] = useState(null);
+    const defaultImage = "../../public/defaultImage.jpeg";
 
     useEffect(() => {
         setUrl(`https://sandbox.academiadevelopers.com/infosphere/articles/?page=${page}`);
     }, [page])
+
+    useEffect( () => {
+        if (data && data.results.length > 0) {
+            const articleLongTitle = data.results.filter(article => article.title.split(' ').length > 4);
+            if (articleLongTitle.length > 0) {
+                const randomIndex = Math.floor(Math.random() * articleLongTitle.length);
+                setRandomArticle(articleLongTitle[randomIndex]);
+            }
+        
+        }
+    }, [data])
 
     const handlePreviousPage = () => {
         if (page > 1) {
@@ -38,6 +50,18 @@ function HomePage(props) {
             <div>
                 {isAuth ? <NavBar /> : null}
             </div>
+
+            {randomArticle && (
+                <div className="container-fluid vh-100 position-relative p-0"> 
+                    <img src={randomArticle.image  || defaultImage} alt={randomArticle.title} className="w-100 h-100 position-absolute" style={{objectFit: 'cover', zIndex: -1}}/>
+                   <div className="d-flex flex-column justify-content-center align-items-center text-white h-100" style={{backgroundColor: 'rgba(4, 4, 4, 0.7)'}}>
+                        <h1 className="display-5 p-4" style={{fontWeight: 'bold'}}>{randomArticle.title}</h1>
+                        <p className="lead text-white p-4">{randomArticle.abstract}</p>
+                   </div>
+                </div>
+            )}
+
+
             <div className="d-flex justify-content-center my-3">
                 <button onClick={handlePreviousPage} disabled={page <= 1} className="btn btn-primary me-2"> Anterior</button>
                 <button onClick={handleNextPage} disabled={!data || !data.next} className="btn btn-primary">Siguiente</button>
@@ -47,10 +71,12 @@ function HomePage(props) {
 
                     {/* <h1>Articles</h1> */}
                     {loading ? (
-                        <p>Cargando articulos...</p>
+                        <p className="text-center mb-5">Cargando articulos...</p>
                     ) : error ? (
                         <p>Ocurrio un error</p>
-                    ) : data.results.map((article) => (
+                    ) : data.results
+                        .filter(article => article.title.split(' ').length > 4)
+                        .map((article) => (
                         <ArticleCard
                             key={article.id}
                             title={article.title}
