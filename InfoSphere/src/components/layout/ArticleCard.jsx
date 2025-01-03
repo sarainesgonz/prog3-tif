@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 function ArticleCard(props) {
     const { title, created_at, abstract, content, image, author } = props;
     const formatDate = new Date(created_at).toLocaleDateString(); //fecha formato normal
-    const defaultImage = "../../public/defaultImage.jpeg";
+    const defaultImage = "/defaultImage.jpeg";
     const { authState } = useAuth();
     const { isAuth } = authState;
 
