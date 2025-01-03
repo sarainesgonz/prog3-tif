@@ -16,7 +16,7 @@ function HomePage(props) {
     const { data, loading, error } = useFetch(url, { method: "GET" });
     const [page, setPage] = useState(1);
     const [randomArticle, setRandomArticle] = useState(null);
-    const defaultImage = "../../public/defaultImage.jpeg";
+    const defaultImage = "/defaultImage.jpeg";
 
     useEffect(() => {
         setUrl(`https://sandbox.academiadevelopers.com/infosphere/articles/?page=${page}`);
