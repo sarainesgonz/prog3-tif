@@ -66,10 +66,14 @@ function Login(props) {
 
     return (
         <div className="container mt-5 mb-5">
+            
             <div className="row justify-content-center">
                 <div className="col-md-6 col-lg-4">
+                <h2 className="text-center m-2 p-2">Inicia sesión para leer la noticia completa: </h2>
                     <div className="card">
+                        
                         <div className="card-body">
+                           
                             <h1 className="text-center">Login</h1>
 
                             <form onSubmit={handleSubmit} className="m-4 p-4">
