@@ -72,7 +72,7 @@ function Login(props) {
                 <h2 className="text-center m-2 p-2">Inicia sesión para leer la noticia completa: </h2>
                     <div className="card">
                         
-                        <div className="card-body">
+                        <div className="card-body" style={{fontWeight: 'bold',  boxShadow: '0 0 8px 3px rgba(129, 157, 207, 0.7)'}}>
                            
                             <h1 className="text-center">Login</h1>
 

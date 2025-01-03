@@ -5,6 +5,7 @@ import ArticleCard from "./layout/ArticleCard";
 import "../styles/HomePage.css";
 import NavBar from "./layout/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {FaArrowLeft, FaArrowRight} from "react-icons/fa";
 
 function HomePage(props) {
     /* displays all the articles, and the navbar if the user is authenticated*/
@@ -58,16 +59,20 @@ function HomePage(props) {
                         <h1 className="display-5 p-4" style={{fontWeight: 'bold'}}>{randomArticle.title}</h1>
                         <p className="lead text-white p-4">{randomArticle.abstract}</p>
                    </div>
+                   <div className="d-flex justify-content-center position-absolute w-100" style={{bottom: '20px'}}>
+                        <button onClick={handlePreviousPage} disabled={page <= 1} className="btn btn-dark me-4" style={{fontWeight: 'bold',  boxShadow: '0 0 8px 3px rgba(129, 157, 207, 0.8)'}}><FaArrowLeft className="me-2" /> Anterior</button>
+                        <button onClick={handleNextPage} disabled={!data || !data.next} className="btn btn-dark" style={{fontWeight: 'bold', boxShadow: '0 0 8px 3px rgba(129, 157, 207, 0.8)'}}> Siguiente <FaArrowRight className="ms-2" /></button>
+                    </div>
                 </div>
             )}
 
 
-            <div className="d-flex justify-content-center my-3">
+            {/* <div className="d-flex justify-content-center my-3">
                 <button onClick={handlePreviousPage} disabled={page <= 1} className="btn btn-primary me-2"> Anterior</button>
                 <button onClick={handleNextPage} disabled={!data || !data.next} className="btn btn-primary">Siguiente</button>
-            </div>
+            </div> */}
             <div className="container mt-5">
-                <div className="row">
+                <div className="row justify-content-center">
 
                     {/* <h1>Articles</h1> */}
                     {loading ? (
